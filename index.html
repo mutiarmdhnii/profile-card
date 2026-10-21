@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Portfolio - Élise de la Cour</title>
+    
+    <!-- Google Fonts: Cormorant Garamond, Alex Brush, Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom External Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Custom External JavaScript (Tailwind config + Interactive logic) -->
+    <script src="script.js"></script>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-6 antialiased selection:bg-pastel-powder selection:text-white relative">
+
+    <!-- Decorative Background Elements -->
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div class="absolute -top-32 -left-32 w-96 h-96 bg-white rounded-full mix-blend-overlay filter blur-3xl opacity-60"></div>
+        <div class="absolute bottom-10 right-10 w-80 h-80 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
+    </div>
+
+    <!-- Main Portfolio Layout -->
+    <div class="max-w-4xl w-full z-10 flex flex-col items-center">
+        
+        <!-- Header Section -->
+        <header class="text-center mb-16">
+            <p class="font-script text-3xl text-pastel-accent mb-2 tracking-wide">Welcome to my space</p>
+            <h1 class="font-serif text-5xl md:text-6xl text-pastel-text font-medium tracking-wide mb-4">
+                Élise <span class="italic text-slate-400">de la Cour</span>
+            </h1>
+            <div class="flex items-center justify-center gap-3 opacity-70">
+                <div class="h-[1px] w-12 bg-pastel-accent"></div>
+                <span class="font-serif text-slate-500 uppercase tracking-[0.3em] text-xs">Portfolio</span>
+                <div class="h-[1px] w-12 bg-pastel-accent"></div>
+            </div>
+        </header>
+
+        <!-- Portfolio Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full px-4 md:px-0">
+            
+            <!-- Card 1: My Profile (Clickable to open modal) -->
+            <button id="open-profile-btn" class="glass-panel rounded-3xl p-8 flex flex-col items-center justify-center gap-4 text-center smooth-transition hover-glow group cursor-pointer focus:outline-none">
+                <div class="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center text-pastel-accent group-hover:bg-pastel-accent group-hover:text-white smooth-transition">
+                    <i class="fa-regular fa-user text-2xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-serif text-2xl text-pastel-text mb-1">My Profile</h3>
+                    <p class="font-sans text-xs text-slate-400 uppercase tracking-widest">About & Socials</p>
+                </div>
+            </button>
+
+            <!-- Card 2: My Work -->
+            <div class="glass-panel rounded-3xl p-8 flex flex-col items-center justify-center gap-4 text-center smooth-transition hover-glow group cursor-pointer">
+                <div class="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center text-pastel-accent group-hover:bg-pastel-accent group-hover:text-white smooth-transition">
+                    <i class="fa-regular fa-folder-open text-2xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-serif text-2xl text-pastel-text mb-1">My Work</h3>
+                    <p class="font-sans text-xs text-slate-400 uppercase tracking-widest">Projects</p>
+                </div>
+            </div>
+
+            <!-- Card 3: Gallery -->
+            <div class="glass-panel rounded-3xl p-8 flex flex-col items-center justify-center gap-4 text-center smooth-transition hover-glow group cursor-pointer">
+                <div class="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center text-pastel-accent group-hover:bg-pastel-accent group-hover:text-white smooth-transition">
+                    <i class="fa-regular fa-image text-2xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-serif text-2xl text-pastel-text mb-1">Gallery</h3>
+                    <p class="font-sans text-xs text-slate-400 uppercase tracking-widest">Aesthetics</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- MODAL POPUP (Profile Card)                 -->
+    <!-- ========================================== -->
+    <div id="profile-modal" class="fixed inset-0 z-50 flex items-center justify-center px-4 modal-enter bg-slate-900/10 backdrop-blur-md">
+        
+        <!-- Modal Backdrop (Click to close) -->
+        <div id="modal-backdrop" class="absolute inset-0 cursor-pointer"></div>
+
+        <!-- Modal Content (The Profile Card) -->
+        <div id="modal-card" class="relative max-w-sm w-full z-10 modal-scale-down pt-12">
+            
+            <!-- Crybaby Peeking Mascot Header -->
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 z-30 pointer-events-none flex flex-col items-center crybaby-floating">
+                <!-- Floating Sparkles around Crybaby -->
+                <div class="relative">
+                    <span class="absolute -top-1 -left-4 text-pastel-accent text-xs cry-sparkle">✦</span>
+                    <span class="absolute top-4 -right-4 text-pastel-powder text-xs cry-sparkle" style="animation-delay: 1s;"><i class="fa-solid fa-droplet text-blue-300 text-[10px]"></i></span>
+                    
+                    <!-- Crybaby Illustration SVG -->
+                    <svg class="crybaby-svg drop-shadow-md" viewBox="0 0 160 115" width="135" height="98" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="hoodGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#f8fafc"/>
+                                <stop offset="100%" stop-color="#dbeafe"/>
+                            </linearGradient>
+                            <linearGradient id="earInner" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#fce7f3"/>
+                                <stop offset="100%" stop-color="#fbcfe8"/>
+                            </linearGradient>
+                            <linearGradient id="faceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#ffffff"/>
+                                <stop offset="100%" stop-color="#fef3c7"/>
+                            </linearGradient>
+                            <linearGradient id="tearGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#bae6fd"/>
+                                <stop offset="50%" stop-color="#60a5fa"/>
+                                <stop offset="100%" stop-color="#3b82f6"/>
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Bear Ears -->
+                        <circle cx="40" cy="36" r="18" fill="url(#hoodGrad)" stroke="#bfdbfe" stroke-width="2"/>
+                        <circle cx="40" cy="36" r="10" fill="url(#earInner)"/>
+
+                        <circle cx="120" cy="36" r="18" fill="url(#hoodGrad)" stroke="#bfdbfe" stroke-width="2"/>
+                        <circle cx="120" cy="36" r="10" fill="url(#earInner)"/>
+
+                        <!-- Hood / Head -->
+                        <ellipse cx="80" cy="62" rx="48" ry="42" fill="url(#hoodGrad)" stroke="#bfdbfe" stroke-width="2"/>
+
+                        <!-- Hair bangs peeking from hood -->
+                        <path d="M 52 50 C 58 42, 68 44, 72 48 C 76 43, 86 42, 90 47 C 96 43, 104 46, 108 51" fill="#fde68a" stroke="#fcd34d" stroke-width="1.5" stroke-linecap="round"/>
+
+                        <!-- Face Skin -->
+                        <ellipse cx="80" cy="68" rx="36" ry="30" fill="url(#faceGrad)"/>
+
+                        <!-- Cheeks Blush -->
+                        <ellipse cx="56" cy="74" rx="8" ry="4.5" fill="#f472b6" opacity="0.35"/>
+                        <ellipse cx="104" cy="74" rx="8" ry="4.5" fill="#f472b6" opacity="0.35"/>
+
+                        <!-- Eyebrows (Sad / Pouty angle) -->
+                        <path d="M 57 56 Q 65 53 71 58" fill="none" stroke="#78350f" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M 103 56 Q 95 53 89 58" fill="none" stroke="#78350f" stroke-width="2" stroke-linecap="round"/>
+
+                        <!-- Eyes (Big glossy teary eyes) -->
+                        <ellipse cx="64" cy="67" rx="7" ry="8.5" fill="#1e293b"/>
+                        <circle cx="62" cy="64" r="2.8" fill="#ffffff"/>
+                        <circle cx="66" cy="70" r="1.3" fill="#ffffff"/>
+                        <ellipse cx="64" cy="72" rx="5" ry="2.2" fill="#93c5fd" opacity="0.6"/>
+
+                        <ellipse cx="96" cy="67" rx="7" ry="8.5" fill="#1e293b"/>
+                        <circle cx="94" cy="64" r="2.8" fill="#ffffff"/>
+                        <circle cx="98" cy="70" r="1.3" fill="#ffffff"/>
+                        <ellipse cx="96" cy="72" rx="5" ry="2.2" fill="#93c5fd" opacity="0.6"/>
+
+                        <!-- Big 3D Signature Crybaby Teardrops -->
+                        <g class="cry-tear">
+                            <!-- Left Teardrop -->
+                            <path d="M 64 74 C 61 77, 59 81, 59 85 C 59 90, 62 93, 65 93 C 68 93, 71 90, 71 85 C 71 81, 67 77, 64 74 Z" 
+                                  fill="url(#tearGrad)" opacity="0.95"/>
+                            <ellipse cx="63" cy="85" rx="1.5" ry="3.5" fill="#ffffff" opacity="0.8"/>
+
+                            <!-- Right Teardrop -->
+                            <path d="M 96 74 C 93 77, 91 81, 91 85 C 91 90, 94 93, 97 93 C 100 93, 103 90, 103 85 C 103 81, 99 77, 96 74 Z" 
+                                  fill="url(#tearGrad)" opacity="0.95"/>
+                            <ellipse cx="95" cy="85" rx="1.5" ry="3.5" fill="#ffffff" opacity="0.8"/>
+                        </g>
+
+                        <!-- Pouty Mouth -->
+                        <path d="M 76 83 Q 80 81 84 83" fill="none" stroke="#e11d48" stroke-width="2.2" stroke-linecap="round"/>
+
+                        <!-- Cute Paws clutching card rim -->
+                        <ellipse cx="48" cy="101" rx="9" ry="6.5" fill="url(#hoodGrad)" stroke="#bfdbfe" stroke-width="1.8"/>
+                        <ellipse cx="48" cy="100" rx="4" ry="2.8" fill="#fbcfe8" opacity="0.85"/>
+                        
+                        <ellipse cx="112" cy="101" rx="9" ry="6.5" fill="url(#hoodGrad)" stroke="#bfdbfe" stroke-width="1.8"/>
+                        <ellipse cx="112" cy="100" rx="4" ry="2.8" fill="#fbcfe8" opacity="0.85"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Card Body Container -->
+            <div class="glass-card w-full rounded-[2.5rem] shadow-elegant overflow-hidden relative p-8 pt-8">
+                
+                <!-- Close Button -->
+                <button id="close-profile-btn" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full bg-white/50 text-slate-400 hover:text-pastel-text hover:bg-pastel-blue smooth-transition z-20 focus:outline-none">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+
+                <!-- Decorative blobs inside modal -->
+                <div class="absolute -top-10 -left-10 w-40 h-40 bg-white rounded-full mix-blend-overlay filter blur-2xl opacity-80 pointer-events-none"></div>
+
+                <!-- Profile Content -->
+                <div class="relative z-10">
+                    <!-- Profile Picture -->
+                    <div class="flex flex-col items-center justify-center mb-5 mt-1">
+                        <!-- Crybaby Tag -->
+                        <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-pastel-blue/80 border border-pastel-powder text-[10px] uppercase font-sans tracking-widest text-slate-500 mb-3 shadow-sm">
+                            <i class="fa-solid fa-droplet text-pastel-accent"></i> Crybaby Club
+                        </div>
+
+                        <div class="p-1.5 border border-pastel-accent/50 rounded-full avatar-glow bg-white relative">
+                            <img src="https://placehold.co/400x400/dbeafe/334155?text=Photo&font=Playfair+Display" 
+                                 alt="Profile" 
+                                 class="w-24 h-24 rounded-full object-cover">
+                            <!-- Teardrop sticker badge on avatar -->
+                            <span class="absolute -bottom-1 -right-1 w-7 h-7 bg-white rounded-full shadow-md border border-pastel-accent/40 flex items-center justify-center text-pastel-accent text-xs">
+                                💧
+                            </span>
+                        </div>
+                    </div>
+
+                <!-- Name and Bio -->
+                <div class="text-center mb-6">
+                    <p class="font-script text-2xl text-pastel-accent -mb-2">get to know</p>
+                    <h2 class="font-serif text-3xl text-pastel-text font-medium tracking-wide">
+                        Élise <span class="italic text-slate-400">de la Cour</span>
+                    </h2>
+                    <div class="flex items-center justify-center gap-2 my-3 opacity-60">
+                        <div class="h-[1px] w-8 bg-pastel-accent"></div>
+                        <i class="fa-solid fa-gem text-[8px] text-pastel-accent"></i>
+                        <div class="h-[1px] w-8 bg-pastel-accent"></div>
+                    </div>
+                    <p class="font-serif text-slate-500 text-lg leading-relaxed px-2">
+                        L'art de vivre. Romanticizing life, digital aesthetics, and the art of gentle living.
+                    </p>
+                </div>
+
+                <!-- Followers Stats Section -->
+                <div class="flex gap-4 mb-8">
+                    <!-- Instagram Stat -->
+                    <div class="flex-1 bg-white/60 border border-pastel-powder/40 rounded-2xl p-3 text-center">
+                        <i class="fa-brands fa-instagram text-pastel-accent mb-1"></i>
+                        <h3 class="font-serif text-xl text-pastel-text font-medium">125K</h3>
+                        <p class="font-sans text-[8px] uppercase tracking-[0.2em] text-slate-400 mt-1">Followers</p>
+                    </div>
+                    <!-- TikTok Stat -->
+                    <div class="flex-1 bg-white/60 border border-pastel-powder/40 rounded-2xl p-3 text-center">
+                        <i class="fa-brands fa-tiktok text-pastel-accent mb-1"></i>
+                        <h3 class="font-serif text-xl text-pastel-text font-medium">500K</h3>
+                        <p class="font-sans text-[8px] uppercase tracking-[0.2em] text-slate-400 mt-1">Followers</p>
+                    </div>
+                </div>
+
+                <!-- Social Links Menu -->
+                <div class="space-y-3">
+                    <!-- Instagram Link -->
+                    <a href="#" class="smooth-transition block w-full bg-white/80 border border-pastel-powder/50 rounded-2xl p-3.5 group hover:-translate-y-1 hover:shadow-lg hover:shadow-pastel-blue/40">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <div class="w-9 h-9 rounded-full bg-pastel-blue/30 flex items-center justify-center text-pastel-accent group-hover:bg-pastel-accent group-hover:text-white smooth-transition">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </div>
+                                <span class="font-serif text-lg text-pastel-text">Instagram</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs text-pastel-powder group-hover:text-pastel-accent smooth-transition"></i>
+                        </div>
+                    </a>
+
+                    <!-- TikTok Link -->
+                    <a href="#" class="smooth-transition block w-full bg-white/80 border border-pastel-powder/50 rounded-2xl p-3.5 group hover:-translate-y-1 hover:shadow-lg hover:shadow-pastel-blue/40">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <div class="w-9 h-9 rounded-full bg-pastel-blue/30 flex items-center justify-center text-pastel-accent group-hover:bg-pastel-accent group-hover:text-white smooth-transition">
+                                    <i class="fa-brands fa-tiktok"></i>
+                                </div>
+                                <span class="font-serif text-lg text-pastel-text">TikTok</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs text-pastel-powder group-hover:text-pastel-accent smooth-transition"></i>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

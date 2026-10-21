@@ -1,0 +1,121 @@
+/* ==========================================
+   GLOBAL & BACKGROUND STYLES
+   ========================================== */
+body {
+    /* Soft, ethereal light blue gradient background */
+    background: linear-gradient(135deg, #eff6ff 0%, #e0f2fe 50%, #dbeafe 100%);
+    background-attachment: fixed;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   GLASSMORPHISM UTILITIES
+   ========================================== */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(191, 219, 254, 0.6); /* pastel-powder with opacity */
+}
+
+/* ==========================================
+   SHADOWS & GLOW EFFECTS
+   ========================================== */
+.shadow-elegant {
+    box-shadow: 0 20px 40px -15px rgba(147, 197, 253, 0.3);
+}
+
+.hover-glow:hover {
+    box-shadow: 0 15px 35px -10px rgba(147, 197, 253, 0.5);
+    transform: translateY(-5px);
+}
+
+.avatar-glow {
+    box-shadow: 0 0 20px rgba(191, 219, 254, 0.5);
+}
+
+/* ==========================================
+   TRANSITIONS & ANIMATIONS
+   ========================================== */
+.smooth-transition {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Modal Animation States */
+.modal-enter {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-enter-active {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.5s ease;
+}
+
+.modal-scale-down {
+    transform: scale(0.95) translateY(10px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-scale-up {
+    transform: scale(1) translateY(0);
+}
+
+/* ==========================================
+   CRYBABY MASCOT STYLING & ANIMATIONS
+   ========================================== */
+@keyframes crybaby-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes tear-glisten {
+    0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 2px 4px rgba(96, 165, 250, 0.4));
+    }
+    50% {
+        transform: scale(1.08) translateY(1.5px);
+        filter: drop-shadow(0 4px 8px rgba(96, 165, 250, 0.7));
+    }
+}
+
+@keyframes sparkle-twinkle {
+    0%, 100% {
+        transform: scale(0.85) rotate(0deg);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1.2) rotate(15deg);
+        opacity: 1;
+    }
+}
+
+.crybaby-floating {
+    animation: crybaby-float 3.5s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+.cry-tear {
+    animation: tear-glisten 2.2s ease-in-out infinite;
+    transform-origin: center top;
+}
+
+.cry-sparkle {
+    animation: sparkle-twinkle 2.5s ease-in-out infinite;
+}
+
+
